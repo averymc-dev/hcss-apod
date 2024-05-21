@@ -1,4 +1,4 @@
-require('dotenv').config()
+
 const apiKey = process.env.API_KEY
 
 let today = new Date();
@@ -31,7 +31,7 @@ document.getElementById('rndm').addEventListener('click', getRndm)
 function getFetch(){
   
   const choice = document.querySelector('input').value
-  const url = ``
+  const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${choice}`
 
   fetch(url)
       .then(res => res.json()) // parse response as JSON
@@ -54,7 +54,7 @@ function getFetch(){
 }
 
 function getRndm(){
-  const url = ``
+  const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&count=1`
 
   fetch(url)
       .then(res => res.json())
